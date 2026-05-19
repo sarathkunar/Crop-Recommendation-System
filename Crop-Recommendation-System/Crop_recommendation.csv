@@ -1,4 +1,4 @@
-N,P,K,temperature,humidity,ph,rainfall,label
+N,P,K,temperature,humidity,ph,rainfall,season,label
 65,29,45,14.2,54.6,6.6,70.5,Winter,orange
 65,46,34,17.1,63.5,7.4,79.0,Winter,wheat
 59,25,21,18.5,66.6,6.7,46.3,Winter,potato
