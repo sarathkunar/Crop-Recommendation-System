@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Crop Recommendation System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="overlay"></div>
+
+    <div class="main-container">
+
+        <div class="left-section">
+
+            <h1>🌾 Smart Crop Recommendation System</h1>
+
+            <p>
+                Machine Learning Agricultural Decision Platform
+            </p>
+
+            <div class="features">
+
+                <div class="feature-card">
+                    <h3>🌱 Soil Nutrients Analysis</h3>
+                    <p>
+                        Evaluates Nitrogen (N), Phosphorus (P), and Potassium (K) to match soil fertility to crop requirements.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>☁ Environmental & Climate Modeling</h3>
+                    <p>
+                        Analyzes temperature, relative humidity, soil pH, and rainfall thresholds alongside seasonal cycles.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>📊 Multi-Algorithm Benchmark</h3>
+                    <p>
+                        Trained and benchmarked across 7 classifiers (Random Forest, Gradient Boosting, SVM, Naive Bayes, Logistic Regression, KNN, Decision Tree).
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>🔍 Feature Importance Analysis</h3>
+                    <div class="feature-tags">
+                        <span class="tag">Season: 17.8%</span>
+                        <span class="tag">Phosphorus: 14.5%</span>
+                        <span class="tag">Temperature: 14.3%</span>
+                        <span class="tag">Rainfall: 13.5%</span>
+                        <span class="tag">Nitrogen: 12.2%</span>
+                        <span class="tag">Potassium: 11.0%</span>
+                        <span class="tag">Humidity: 10.0%</span>
+                        <span class="tag">pH: 6.8%</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="right-section">
+
+            <div class="form-container">
+
+                <h2>Crop Recommendation</h2>
+
+                <form action="/predict" method="POST" id="cropForm">
+
+                    <div class="input-box">
+                        <label for="N">Nitrogen (N) [0 - 300]</label>
+                        <input type="number" id="N" name="N" min="0" max="300" step="any" value="{{ form_data.get('N', '') }}" placeholder="e.g. 90" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="P">Phosphorus (P) [0 - 300]</label>
+                        <input type="number" id="P" name="P" min="0" max="300" step="any" value="{{ form_data.get('P', '') }}" placeholder="e.g. 42" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="K">Potassium (K) [0 - 300]</label>
+                        <input type="number" id="K" name="K" min="0" max="300" step="any" value="{{ form_data.get('K', '') }}" placeholder="e.g. 43" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="temperature">Temperature (°C) [-10 - 65]</label>
+                        <input type="number" id="temperature" name="temperature" min="-10" max="65" step="any" value="{{ form_data.get('temperature', '') }}" placeholder="e.g. 20.8" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="humidity">Humidity (%) [0 - 100]</label>
+                        <input type="number" id="humidity" name="humidity" min="0" max="100" step="any" value="{{ form_data.get('humidity', '') }}" placeholder="e.g. 82.0" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="ph">pH Value [0 - 14]</label>
+                        <input type="number" id="ph" name="ph" min="0" max="14" step="any" value="{{ form_data.get('ph', '') }}" placeholder="e.g. 6.5" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="rainfall">Rainfall (mm) [0 - 1000]</label>
+                        <input type="number" id="rainfall" name="rainfall" min="0" max="1000" step="any" value="{{ form_data.get('rainfall', '') }}" placeholder="e.g. 202.9" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="season">Season</label>
+                        <select id="season" name="season" required>
+                            <option value="" disabled {% if not form_data.get('season') %}selected{% endif %}>Select Season</option>
+                            {% for s in seasons %}
+                            <option value="{{ s }}" {% if form_data.get('season') == s %}selected{% endif %}>{{ s }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <button type="submit" id="predictBtn">
+                        Predict Best Crop
+                    </button>
+
+                </form>
+
+                {% if error_text %}
+                <div class="error-box">
+                    <h3>⚠️ {{ error_text }}</h3>
+                </div>
+                {% endif %}
+
+                {% if prediction_text %}
+                <div class="result-box">
+                    <h3>🎉 {{ prediction_text }}</h3>
+                    {% if confidence %}
+                    <div class="confidence-badge">Confidence: {{ confidence }}%</div>
+                    {% endif %}
+                    
+                    {% if top_recommendations and top_recommendations|length > 1 %}
+                    <div class="alt-recommendations">
+                        <p class="alt-title">Alternative Suitable Crops:</p>
+                        <div class="alt-chips">
+                            {% for rec in top_recommendations[1:] %}
+                            <span class="alt-chip">{{ rec.crop }}: {{ rec.confidence_percent }}%</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

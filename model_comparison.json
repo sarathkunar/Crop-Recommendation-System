@@ -1,0 +1,92 @@
+[
+  {
+    "Algorithm": "Tuned Random Forest",
+    "CV_Accuracy_%": 75.67,
+    "CV_Std_%": 1.99,
+    "CV_F1_%": 75.34,
+    "Test_Accuracy_%": 78.0,
+    "Test_Precision_%": 78.13,
+    "Test_Recall_%": 78.0,
+    "Test_F1_%": 77.65
+  },
+  {
+    "Algorithm": "Standard Random Forest",
+    "CV_Accuracy_%": 74.87,
+    "CV_Std_%": 1.69,
+    "CV_F1_%": 74.56,
+    "Test_Accuracy_%": 79.0,
+    "Test_Precision_%": 79.61,
+    "Test_Recall_%": 79.0,
+    "Test_F1_%": 78.98
+  },
+  {
+    "Algorithm": "Extra Trees",
+    "CV_Accuracy_%": 74.2,
+    "CV_Std_%": 1.07,
+    "CV_F1_%": 74.01,
+    "Test_Accuracy_%": 76.67,
+    "Test_Precision_%": 76.96,
+    "Test_Recall_%": 76.67,
+    "Test_F1_%": 76.47
+  },
+  {
+    "Algorithm": "Gradient Boosting",
+    "CV_Accuracy_%": 72.27,
+    "CV_Std_%": 2.69,
+    "CV_F1_%": 72.01,
+    "Test_Accuracy_%": 75.0,
+    "Test_Precision_%": 75.02,
+    "Test_Recall_%": 75.0,
+    "Test_F1_%": 74.74
+  },
+  {
+    "Algorithm": "Support Vector Machine (RBF)",
+    "CV_Accuracy_%": 71.6,
+    "CV_Std_%": 1.02,
+    "CV_F1_%": 71.46,
+    "Test_Accuracy_%": 72.33,
+    "Test_Precision_%": 72.8,
+    "Test_Recall_%": 72.33,
+    "Test_F1_%": 71.97
+  },
+  {
+    "Algorithm": "Gaussian Naive Bayes",
+    "CV_Accuracy_%": 72.0,
+    "CV_Std_%": 1.37,
+    "CV_F1_%": 71.83,
+    "Test_Accuracy_%": 72.0,
+    "Test_Precision_%": 73.42,
+    "Test_Recall_%": 72.0,
+    "Test_F1_%": 71.78
+  },
+  {
+    "Algorithm": "Logistic Regression",
+    "CV_Accuracy_%": 70.07,
+    "CV_Std_%": 1.87,
+    "CV_F1_%": 69.87,
+    "Test_Accuracy_%": 71.33,
+    "Test_Precision_%": 72.19,
+    "Test_Recall_%": 71.33,
+    "Test_F1_%": 71.26
+  },
+  {
+    "Algorithm": "Decision Tree",
+    "CV_Accuracy_%": 69.8,
+    "CV_Std_%": 2.45,
+    "CV_F1_%": 68.61,
+    "Test_Accuracy_%": 69.33,
+    "Test_Precision_%": 70.73,
+    "Test_Recall_%": 69.33,
+    "Test_F1_%": 69.47
+  },
+  {
+    "Algorithm": "K-Nearest Neighbors",
+    "CV_Accuracy_%": 64.73,
+    "CV_Std_%": 2.07,
+    "CV_F1_%": 64.53,
+    "Test_Accuracy_%": 66.67,
+    "Test_Precision_%": 67.06,
+    "Test_Recall_%": 66.67,
+    "Test_F1_%": 66.48
+  }
+]

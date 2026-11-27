@@ -1,0 +1,114 @@
+{
+  "dataset_summary": {
+    "total_samples": 1500,
+    "feature_count": 8,
+    "target_classes": 15,
+    "classes": [
+      "apple",
+      "banana",
+      "carrot",
+      "cotton",
+      "grapes",
+      "maize",
+      "mango",
+      "onion",
+      "orange",
+      "papaya",
+      "potato",
+      "rice",
+      "soybean",
+      "tomato",
+      "wheat"
+    ]
+  },
+  "feature_rankings": [
+    {
+      "Feature": "season",
+      "Display_Name": "Season",
+      "RF_Importance_%": 18.6,
+      "Mutual_Info": 1.1961,
+      "ANOVA_F_Score": Infinity
+    },
+    {
+      "Feature": "P",
+      "Display_Name": "Phosphorus (P)",
+      "RF_Importance_%": 14.48,
+      "Mutual_Info": 0.6034,
+      "ANOVA_F_Score": 143.8
+    },
+    {
+      "Feature": "temperature",
+      "Display_Name": "Temperature",
+      "RF_Importance_%": 14.44,
+      "Mutual_Info": 0.8253,
+      "ANOVA_F_Score": 342.58
+    },
+    {
+      "Feature": "rainfall",
+      "Display_Name": "Rainfall",
+      "RF_Importance_%": 13.07,
+      "Mutual_Info": 0.7192,
+      "ANOVA_F_Score": 327.05
+    },
+    {
+      "Feature": "N",
+      "Display_Name": "Nitrogen (N)",
+      "RF_Importance_%": 12.05,
+      "Mutual_Info": 0.7157,
+      "ANOVA_F_Score": 238.49
+    },
+    {
+      "Feature": "K",
+      "Display_Name": "Potassium (K)",
+      "RF_Importance_%": 10.73,
+      "Mutual_Info": 0.5897,
+      "ANOVA_F_Score": 144.17
+    },
+    {
+      "Feature": "humidity",
+      "Display_Name": "Humidity",
+      "RF_Importance_%": 9.89,
+      "Mutual_Info": 0.51,
+      "ANOVA_F_Score": 143.29
+    },
+    {
+      "Feature": "ph",
+      "Display_Name": "pH",
+      "RF_Importance_%": 6.74,
+      "Mutual_Info": 0.1556,
+      "ANOVA_F_Score": 19.24
+    }
+  ],
+  "correlation_with_nutrients": {
+    "N": {
+      "N": 1.0,
+      "P": 0.44178707250805005,
+      "K": 0.5907816538328204,
+      "temperature": 0.42955482932113104,
+      "humidity": 0.5826552431456175,
+      "ph": 0.04658753465618858,
+      "rainfall": 0.6800175610842415,
+      "season_encoded": -0.18386140272439375
+    },
+    "P": {
+      "N": 0.44178707250805005,
+      "P": 1.0,
+      "K": 0.43836792862888685,
+      "temperature": 0.07213252919838822,
+      "humidity": 0.29400585087081166,
+      "ph": 0.0914315934770997,
+      "rainfall": 0.37715748846319913,
+      "season_encoded": 0.04923540951175114
+    },
+    "K": {
+      "N": 0.5907816538328204,
+      "P": 0.43836792862888685,
+      "K": 1.0,
+      "temperature": 0.3161234626982292,
+      "humidity": 0.4911734909574202,
+      "ph": 0.06987899982618108,
+      "rainfall": 0.5713615982091854,
+      "season_encoded": -0.09804641369310409
+    }
+  }
+}

@@ -1,0 +1,10 @@
+Algorithm,CV_Accuracy_%,CV_Std_%,CV_F1_%,Test_Accuracy_%,Test_Precision_%,Test_Recall_%,Test_F1_%
+Tuned Random Forest,75.67,1.99,75.34,78.0,78.13,78.0,77.65
+Standard Random Forest,74.87,1.69,74.56,79.0,79.61,79.0,78.98
+Extra Trees,74.2,1.07,74.01,76.67,76.96,76.67,76.47
+Gradient Boosting,72.27,2.69,72.01,75.0,75.02,75.0,74.74
+Gaussian Naive Bayes,72.0,1.37,71.83,72.0,73.42,72.0,71.78
+Support Vector Machine (RBF),71.6,1.02,71.46,72.33,72.8,72.33,71.97
+Logistic Regression,70.07,1.87,69.87,71.33,72.19,71.33,71.26
+Decision Tree,69.8,2.45,68.61,69.33,70.73,69.33,69.47
+K-Nearest Neighbors,64.73,2.07,64.53,66.67,67.06,66.67,66.48
